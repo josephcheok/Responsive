@@ -1,0 +1,282 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../images/papyrus.png);
+  background-repeat: repeat;
+  font-family: Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* Width of 100% to take width of screen instead of being limited to the content length */
+/* z-index to ensure that navbar is in front of the images when scrolling downwards, and overflow hidden to stop images from overlapping the navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 2px solid #cccccc;
+  top: 0;
+  font-weight: 520;
+  z-index: 2;
+  overflow: auto;
+}
+
+/* container used to restrict width of content to centre of screen */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  clear: both;
+}
+
+/* -ve pixels to align side of logo with border of main content */
+.logo {
+  float: left;
+  width: 270px;
+  height: 80px;
+  margin-left: -9px;
+}
+
+nav {
+  float: right;
+}
+
+ul {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* display inline blocl to get list to present one after the other on the same line instead of stacking on top of each other */
+/* position relative to prepare for the top moving line animation as that needed to be absolute in relation to this */
+li {
+  display: inline-block;
+  margin: 0 25px 0 25px;
+  padding-top: 25px;
+  position: relative;
+}
+
+/* to display active page that is showing on tab */
+ul .active::before {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: #4aaaa5;
+  position: absolute;
+  top: 0;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+/* this part animates the line on top pf the tab on hover */
+nav a:hover {
+  color: black;
+}
+nav a::before {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 0%;
+  background-color: #4aaaa5;
+  position: absolute;
+  top: 0;
+  transition: all ease-in-out 250ms;
+}
+nav a:hover::before {
+  width: 100%;
+}
+
+/* viewport height here defined by device and footer height and unaffected by padding due to box-sizing: border-box above */
+#main-container {
+  padding-top: 130px;
+  min-height: calc(100vh - 70px);
+}
+
+section {
+  background-color: white;
+  border: 1px solid #cccccc;
+  font-size: 20px;
+}
+
+h1 {
+  color: #4aaaa5;
+  padding: 0 0 0 30px;
+}
+
+#bio-image {
+  float: left;
+  width: 300px;
+  height: 300px;
+  padding: 30px 26px 15px 30px;
+}
+
+article {
+  text-align: justify;
+  padding: 30px;
+}
+
+/* this puts a green border around the drawn2life logo to show it is clickable */
+article a:hover #business-logo {
+  border: 1px solid #4aaaa5;
+}
+#business-logo {
+  height: 0.85em;
+  margin-bottom: -3px;
+}
+
+/* the initial ratio of the images are 528(W) to 428(H) */
+#portfolio-image {
+  width: 333px;
+  height: 250px;
+  padding: 20px 30px 20px 30px;
+}
+#portfolio-section {
+  margin-bottom: 50px;
+}
+
+.row:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* relative position to enable the text to be placed absolutely in relation to the column */
+.column {
+  float: left;
+  width: 33%;
+  position: relative;
+}
+
+/* padding was uded to adjust the vertical alignment of text */
+p {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  z-index: 1;
+  width: 273px;
+  height: 50px;
+  margin: 0 0 0 30px;
+  padding: 8px 0 0 0;
+  font-size: 26px;
+  text-align: center;
+  color: white;
+  background-color: #4aaaa5;
+}
+
+form {
+  padding: 30px;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  font-size: 0.8em;
+}
+
+input[type="submit"] {
+  padding: 5px 15px;
+  display: block;
+  background-color: #4aaaa5;
+  color: white;
+  font-size: 20px;
+}
+
+/* textarea  */
+
+footer {
+  padding: 30px 0;
+  clear: both;
+  font-size: 12px;
+  color: #ffffff;
+  color: #cccccc;
+  text-align: center;
+  background: #666666;
+  border-top: 8px solid #4aaaa5;
+  height: 50px;
+}
+
+#test {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#test2 {
+  background-color: grey;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#test3 {
+  margin: 0;
+}
+
+@media only screen and (max-width: 640px) {
+  .navbar {
+    position: static;
+    display: block;
+    background: yellow;
+  }
+  .logo {
+    width: 100%;
+    float: none;
+    background: #4aaaa5;
+  }
+  #bio-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 768px) {
+  .container {
+    max-width: 96%;
+    margin: 0 auto;
+    clear: both;
+  }
+  .navbar {
+    background: pink;
+  }
+  .logo {
+    float: none;
+    background: #4aaaa5;
+  }
+  #bio-image {
+    float: left;
+    width: 300px;
+    height: 300px;
+    padding: 30px 26px 15px 30px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 980px) {
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+    clear: both;
+  }
+  #main-container {
+    margin-left: 5%;
+    max-width: 960px;
+  }
+  .navbar {
+    background: cyan;
+  }
+  #bio-image {
+    float: left;
+    width: 300px;
+    height: 300px;
+    padding: 30px 26px 15px 30px;
+  }
+}
