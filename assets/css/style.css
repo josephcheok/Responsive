@@ -228,35 +228,44 @@ footer {
     display: block;
     background: yellow;
   }
+  nav {
+    float: none;
+    text-align: center;
+  }
+  .container {
+    max-width: auto;
+  }
   .logo {
     width: 100%;
+    height: auto;
     float: none;
+    margin: 0;
     background: #4aaaa5;
   }
   #bio-image {
     width: 100%;
     height: auto;
   }
+  #portfolio-image {
+    width: 100%;
+    height: auto;
+  }
+  p {
+    width: 88%;
+    font-size: 2em;
+    margin-bottom: 20px;
+    height: 1.6em;
+    text-align: center;
+    font-size-adjust: auto;
+  }
 }
 
 @media only screen and (min-width: 641px) and (max-width: 768px) {
-  .container {
-    max-width: 96%;
-    margin: 0 auto;
-    clear: both;
-  }
   .navbar {
     background: pink;
   }
-  .logo {
-    float: none;
-    background: #4aaaa5;
-  }
-  #bio-image {
-    float: left;
-    width: 300px;
-    height: 300px;
-    padding: 30px 26px 15px 30px;
+  .container {
+    max-width: auto;
   }
 }
 
